@@ -1,0 +1,609 @@
+
+
+
+Data types:
+=============
+In python all Data types are treated as objects
+
+Inbuilt Data types in python are:
+-------------------------------
+In thease int,float,complex,bool,str are called python fundamental & inbuilt data types
+1.int
+2.float
+3.complex
+4.bool
+5.str
+6.bytes
+7.bytearray
+8.range
+9.list
+10.tuple
+11.set
+12.frozenset
+13.dict
+14.None
+
+
+1.int:
+=========
+integral values
+10  20  30  100000
+
+in int data types we can represent the values in 4 types
+
+1.Decimal form (Base 10)
+--------------------------
+  0 to 9
+   a=78778   (Decimal number)
+
+2.Binary form (Base 2)
+------------------------
+   0 and 1
+   a=0b1111   (Binary number)
+   a=0B1111   (Binary number)
+
+>>>a=1111
+>>>a
+1111
+>>>a=0b1111
+>>>a
+15
+
+3.Octal form  (Baase 8)
+------------------------
+  0 to 7
+  a=0o1111   (Octal number)
+  a=0O1111    (Octal number)
+
+>>>a=0o1111
+>>>a
+585
+  
+4.Hexa decimal form  (Base 16)
+-------------------------------
+     0 to 9 , a to f  (or)  A to F
+     a=0x-----   (Hexa decimal number)
+     a=0X-----   (Hexa decimal number)
+
+>>>a=0xFace
+>>>a
+64206
+
+>>>a=0xBeef
+>>>a
+48879
+
+>>>a=0xBeer               (in hexa decimal 'r' is not allowed)
+SyntaxError: invalid hexadecimal literal
+
+NOte:
+=========
+The output in python in only Decimal form   (it wont take power of x)
+
+
+python provides inbuilt functions to convert one base to anether base
+Base conversions:
+------------------
+bin()
+oct()
+hex()
+
+bin(x)       >>X may be in any form here u will get binary form only
+>>>bin (15)
+'0b1111'
+
+>>>bin (0o1111)
+'0b1001001001'
+
+>>>bin(0x1234)
+'0b1001000110100'
+
+oct(x)      >> x may be in any form here u will get octal form only)
+>>>oct(235)
+'0o353'
+
+>>>oct(0xFace)
+'0o175316'
+
+>>>oct(0b1111)
+'0o17'
+
+hex(x)      >> x may be in any form u will get hexa decimal value)
+
+>>>hex(10)
+'0xa'
+>>>hex(16785)
+'0x4191'
+>>>hex(0b1111)
+'0xf'
+
+
+2.float data type:
+================
+555.45
+in float type only decimal form is acceptable (binary,octa,hexa forms are not applicable)
+
+>>>f=123.45
+>>>f
+123.45
+>>>f=0x123.45
+SyntaxError: invalid syntax
+
+Exponential form:
+-----------------
+exponential forms are acceceptable in float type
+1.2e3  (1.2*1000)
+
+>>>f=1.2e3
+>>>f
+1200.0
+
+
+3.complex data type:
+====================
+a+bj
+a=Real part   (may be decimal,octa,hexa decimal or binary)
+b=Imaginory part   (only decimal)
+j=Square Root of -1
+
+>>>x=10+20j
+>>>x
+(10+20j)
+>>>y=10.5+2.3j
+>>>y
+(10.5+2.3j)
+
+>>>a=0b1111+20j
+>>>a
+(15+20j)
+>>>a=15+0b111j
+SyntaxError: invalid binary literal
+
+we can able to perform operations on complex numbers
+>>>a=10+20j
+>>>b=20+30j
+>>>a+b
+(30+50j)
+>>>a-b
+(-10-10j)
+>>>a*b
+(-400+700j)
+
+
+4.bool:
+==========
+The only allowed values for boolean data type are:  True and False
+
+>>>b=True
+>>>b
+True
+>>>type(b)
+<class 'bool'>
+>>>a=10
+>>>b=20
+>>>c=a<b
+>>>c
+True
+
+python internally treet True=1 False=0
+>>>True+True
+2
+>>>True+False
+1
+
+5.str:
+=========
+In python any sequence of charecters is treated as string. string must be in '----' 
+>>>s=durga      (Error)
+Traceback (most recent call last):
+  File "<pyshell#44>", line 1, in <module>
+    s=durga
+NameError: name 'durga' is not defined
+>>>s='durga'   (accepted)
+
+For multiple lines
+
+>>>s='''durga
+    soft'''
+>>>s
+'durga\n    soft'
+>>>s='''durga sir "python" classess'''
+>>>s
+'durga sir "python" classess'
+
+slice Operater: (substring)
+-------------------
+
+Index concept:
+---------------
+'Durgasoft'				  	 'D u r g a s o f t'	
+ 012345678     (positive index)			 -9-8-7-6-5-4-3-2-1	(Negetive index)
+
+>>>s='durgasoft'
+>>>s[0]
+'d'
+>>>s[2]
+'r'
+>>>s[-1]
+'t'
+>>>s[-4]
+'s'
+
+slice operater:
+---------------
+          s[begin:end]  ;   Returns substring from begin index to end-1 index
+
+>>>s='durgasoft'
+>>>s[1:4]
+'urg'
+>>>s[2:5]
+'rga'
+>>>s[1:]
+'urgasoft'
+>>>s[:5]
+'durga'
+>>>s[:]
+'durgasoft'
+>>>s[-1:7]
+''
+>>>s[-1:-7]
+''
+>>>s[-7:-1]
+'rgasof'
+>>>s[100]
+Traceback (most recent call last):
+  File "<pyshell#89>", line 1, in <module>
+    s[100]
+IndexError: string index out of range
+>>>s[1:100]
+'urgasoft'
+
+              s[begin:end:step]   ; step means no of charecters to skip
+>>>s='durgasoftwaresolutions'
+>>>s[1:10]
+'urgasoftw'
+>>>s[1:10:2]
+'ugsfw'
+
+Repetation operatior:
+----------------------
+>>>s='durga'
+>>>s*4
+'durgadurgadurgadurga'
+>>>s*10
+'durgadurgadurgadurgadurgadurgadurgadurgadurgadurga'
+
+length of string:
+----------------
+>>>s='durga'
+>>>len(s)
+5
+
+Type casting:(Type coersion)
+----------------
+converting of one data type value into anether data type value is called type casting
+int()
+float()
+complex()
+bool()
+str()
+
+int():        (Other data type values to integral vlues)
+---------
+int(10.123) ==>10
+int(10+20j) ==>TypeError
+int(True) ==>1
+int(False) ==>0
+int('10') ==>10
+int('10.5') ==>valueError
+-----------
+int(10+20j)    Type error for complex type
+>>>int(123)
+123
+>>>int(123.45)
+123
+>>>int(True)
+1
+>>>int(False)
+0
+>>>int('10')
+10
+>>>int('10.5')
+Traceback (most recent call last):
+  File "<pyshell#5>", line 1, in <module>
+    int('10.5')
+ValueError: invalid literal for int() with base 10: '10.5'
+>>>int('1111')
+1111
+
+>>>int(0b1111)
+15
+>>>int('0b1111')
+Traceback (most recent call last):
+  File "<pyshell#1>", line 1, in <module>
+    int('0b1111')
+ValueError: invalid literal for int() with base 10: '0b1111'
+
+
+float():
+---------
+converting other type values to float type
+float(10) ==> 10.0
+float(10+20j) ==> Type error
+float(True) ==> 1.0
+float(False) ==> 0.0
+float('10') ==> 10.0
+float('10.5') ==> 10.5
+float('ten') ==> ValueError
+float('0b1111') ==> valueError
+
+complex():
+---------
+other types to complex
+
+form-1: complex(x) ==> x+0j
+form-2: complex(x,y) ==> x+yj
+
+form-1:
+--------
+>>>complex(10)
+(10+0j)
+>>>complex(10.5)
+(10.5+0j)
+>>>complex(True)
+(1+0j)
+>>>complex(False)
+0j
+>>>complex('10')
+(10+0j)
+>>>complex('10.5')
+(10.5+0j)
+>>>complex('ten')
+Traceback (most recent call last):
+  File "<pyshell#16>", line 1, in <module>
+    complex('ten')
+ValueError: complex() arg is a malformed string
+
+form-2:
+-------
+>>>complex(10,20)
+(10+20j)
+>>>complex(True,False)
+(1+0j)
+>>>complex(10,20.5)
+(10+20.5j)
+>>>complex('10','20')
+Traceback (most recent call last):
+  File "<pyshell#3>", line 1, in <module>
+    complex('10','20')
+TypeError: complex() can't take second arg if first is a string
+
+4.bool():
+------------
+other types to bool
+
+for int arguments:
+..................
+bool(0) ===> False      (0  - means False)
+bool(10) ===> True
+bool(-8) ===> True       ( Other than 0 -  True)
+...............
+
+for float arguments:
+...............
+bool(0.0) ===> False
+bool(0.01) ===>True
+bool(1.4) ===> True
+...............
+
+for complex Numbers:
+....................
+bool(0+0j) ===> False
+bool(0+1j)   ===>True
+bool(10+0j)  ===>True
+bool(10+20j) ===>True
+
+for str argument:
+...................
+if the argument is empty sring ===> ''        ---> then its treated as ===>False
+in all other cases it is treated as ===> True    ---> ' ' ,'durga' , 'as' , '123' , 'just' , etc
+
+
+5.str() function:
+=================
+>>>str(10)
+'10'
+>>>str(10.5)
+'10.5'
+>>>str(True)
+'True'
+>>>str(10+20j)
+'(10+20j)'
+
+
+--------------------------------------
+Immutable vs Fundamental Data Types:   (video-7, 39min)
+--------------------------------------
+All Fundamental data type objects(int,float,bool,complex,str) are Immutable
+  with Immutability memory utilization and performace are good
+
+>>>v1='hyd'
+>>>v2='hyd'
+>>>v3='hyd'
+>>>id(v1)  --->adress
+2225939795952
+>>>id(v2)
+2225939795952
+>>>id(v3)
+2225939795952
+
+>>>v2='warangal'
+>>>id(v2)
+2225907795184
+
+>>>v1 is v3       ---> Because same adress 
+True
+
+>>>x=10
+>>>y=10
+>>>x is y
+True
+>>>>y is x
+True
+
+--->for int reusing is 1 to 256
+>>>x=10
+>>>y=10
+>>>x is y
+True
+>>>x=256
+>>>y=256
+>>>x is y
+True
+>>>x=257
+>>>y=257
+>>>x is y
+False
+
+---> for floating point data types Reusing is not acceptable
+>>>x=10.0
+>>>y=10.0
+>>>x is y
+False
+
+---> for complex numbers also Reusing is not acceptable
+>>>x=10+20j
+>>>y=10+20j
+>>>x is y
+False
+
+---> for bool ===> always Reusable
+
+---> for str ===> always Reusable
+
+----------------------------------------------------
+bytes data types:
+=================
+This data type represents a group of byte numbers, just like an array
+
+>>>x=[10,20,30,40]
+>>>b=bytes(x)
+>>>type(b)
+<class 'bytes'>
+>>>b[0]
+10
+>>>b[1]
+20
+>>>b[-1]
+40
+
+---> Every value in bytes data type compalsary in the range 0 to 256
+>>>x=[10,20,256,257]
+>>>b=bytes(x)         [Error]
+Traceback (most recent call last):
+  File "<pyshell#10>", line 1, in <module>
+    b=bytes(x)
+ValueError: bytes must be in range(0, 256)
+
+---> bytes data types are immutable         (Once we create bytes data types, we are not allowed to change its contant)
+>>>x=[10,20,30,40]
+>>>b=bytes(x)
+>>>b[0]
+10
+>>>b[0]=120            [Error]
+Traceback (most recent call last):
+  File "<pyshell#15>", line 1, in <module>
+    b[0]=120
+TypeError: 'bytes' object does not support item assignment
+
+
+byte array data type:
+=========================
+1.bytes data type  and byte array data type ===> both are same 
+2. Only difference is byte array data type ===> immutable
+
+>>>x=[10,20,30,40]
+>>>b=bytearray(x)
+>>>type(b)
+<class 'bytearray'>
+>>>b[0]
+10
+>>>b[0]=120     [No Error, allowed]
+>>>for i in b: print(i)
+120    [In the place of 10 ----> 120 added]
+20
+30
+40
+
+>>>x=[10,50,130]
+>>>b=bytearray(x)
+>>>b[0]=257             [Error because range exceeded]
+Traceback (most recent call last):
+  File "<pyshell#26>", line 1, in <module>
+    b[0]=257
+ValueError: byte must be in range(0, 256)
+
+
+list data type:
+=================
+If you want to represent a group of vlues as a single entity, where "insertion order is preserved and duplicates are allowed". Then we can use list data type
+
+>>>l=[]       ([] thease brackets means list)
+>>>type(l)
+<class 'list'>
+>>>l.append(10)         [insersion order means the order we inserted the values, duplicates means again using the same number]
+>>>l.append(20)
+>>>l.append(30)
+>>>l.append(10)
+>>>print(l)
+[10, 20, 30, 10]
+
+
+--->hetirogenious objects are allowed, means different type of objects
+>>>l.append('durga')
+>>>print(l)
+[10, 20, 30, 10, 'durga']
+
+>>>l[0]
+10
+>>>l[-1]
+'durga'
+>>>l[0:4]          (0:n-1, slice operater)
+[10, 20, 30, 10]
+
+---> growable nature, means increasing and decresing of objects also possible
+>>>print(l)
+[10, 20, 30, 10, 'durga']
+>>>l.remove(10)
+>>>print(l)
+[20, 30, 10, 'durga']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
